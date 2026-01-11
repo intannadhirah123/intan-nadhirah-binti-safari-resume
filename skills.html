@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Me</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- BACKGROUND -->
+<style>
+  body {
+    margin: 0;
+    background: linear-gradient(135deg, #b44b00, #ffffff);
+    font-family: Arial, sans-serif;
+    color: #333;
+  }
+</style>
+
+<!-- NAVIGATION BAR -->
+<nav>
+  <div class="logo">
+    <img src="picture/logoresume.png" id="logo" alt="Logo">
+  </div>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="aboutme.html">About Me</a></li>
+    <li><a href="education.html">Education</a></li>
+    <li><a href="experience.html">Experience</a></li>
+    <li><a href="skills.html">Skills</a></li>
+  </ul>
+</nav>
+
+<!-- STUDENT INFO MODAL -->
+<div class="modal" id="studentModal">
+  <div class="modal-content">
+    <span class="close-btn" id="closeModal">&times;</span>
+    <h2>Student Information</h2>
+    <div class="info-grid">
+      <div class="info-item"><span class="label">Name:</span> Intan Nadhirah Binti Safari</div>
+      <div class="info-item"><span class="label">Student ID:</span> 2025195859</div>
+      <div class="info-item"><span class="label">Group:</span> CDIM262ST2</div>
+      <div class="info-item"><span class="label">Course Code:</span> IMS458</div>
+      <div class="info-item"><span class="label">Course Name:</span>BACHELOR OF INFORMATION SCIENCE (HONORS) INFORMATION SYSTEMS MANAGEMENT</div>
+      <div class="info-item"><span class="label">Program Code:</span> CDIM262</div>
+      <div class="info-item"><span class="label">Faculty:</span> FACULTY OF INFORMATION SCIENCE, UiTM PUNCAK PERDANA SHAH ALAM SELANGOR</div>
+      <div class="info-item"><span class="label">Submission Date:</span> 12 January 2026</div>
+      <div class="info-item"><span class="label">Published URL:</span> <a href="#">https://github.com/intannadhirah123/intan-nadhirah-binti-safari-resume.git</a></div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN FLOW -->
+<section class="main-flow">
+
+  <!-- LEFT: References -->
+  <aside class="references-column">
+    <h2>References</h2>
+    <p>For professional details, visit my LinkedIn profile below.</p>
+    <a href="https://www.linkedin.com/in/intan-nadhirah-608878286/" target="_blank" class="linkedin-btn">View LinkedIn</a>
+  </aside>
+
+  <!-- RIGHT: Skills -->
+  <div class="skills-column">
+
+    <!-- SOFT SKILLS -->
+     <div class="=skill-card">
+      <h2>Soft Skills</h2>
+      <ul class="soft-skills-list">
+        <li><strong>Communication:</strong>Demonstrates exceptional ability to articulate complex ideas clearly and persuasively,
+           both verbally and in writing, fostering understanding and engagement across diverse audiences.</li>
+        <li><strong>Teamwork:</strong> Thrives in dynamic team environments by fostering collaboration,
+           valuing diverse perspectives, and driving projects forward with enthusiasm and shared commitment to excellence.</li>
+        <li><strong>Problem Solving:</strong> Tackles challenges creatively, delivering smart and measurable solutions.</li>
+      </ul>
+    </div>
+
+    <!-- TECHNICAL SKILLS -->
+    <div class="hard-block">
+      <h2>Technical Skills</h2>
+      <div class="hard-skills-cards">
+
+        <div class="skill-card">
+          <h3>HTML & CSS</h3>
+          <p>Experienced in designing and building responsive, user-friendly websites using HTML and CSS, 
+            creating visually appealing layouts and smooth user interfaces.</p>
+           <button class="view-project-btn" data-images='["picture/gambarhtml1.png","picture/gambarhtml2.png"]'>View Project</button>
+        </div>
+
+        <div class="skill-card">
+          <h3>JavaScript</h3>
+          <p>Builds efficient and maintainable Java applications using object-oriented principles.</p>
+          <button class="view-project-btn" data-images='["picture/gambarjava1.png","picture/gambarjava3.png"]'>View Project</button>
+        </div>
+
+        <div class="skill-card">
+          <h3>Python</h3>
+          <p>Developed a Python-based movie ticketing system, enabling efficient booking, seat selection, and ticket management.</p>
+          <button class="view-project-btn" data-images='["picture/python1.png","picture/python2.png"]'>View Project</button>
+        </div>
+
+        <div class="skill-card">
+          <h3>PHP</h3>
+          <p>Develops dynamic PHP websites by seamlessly integrating backend logic with interactive user interfaces, 
+            optimizing performance, and delivering engaging, user-focused experiences.</p>
+          <button class="view-project-btn" data-images='["picture/gambarphp1.png","picture/gambarphp2.png"]'>View Project</button>
+        </div>
+
+        <div class="skill-card">
+          <h3>Multimedia & Content Creator</h3>
+          <p>Produces creative multimedia content, including videos and interactive posts, to engage audiences effectively.</p>
+          <button class="view-project-btn" data-images='["picture/afrah1.jpeg","picture/afrah2.jpeg"]'>View Project</button>
+        </div>
+
+        <div class="skill-card">
+          <h3>Database / SQL</h3>
+          <p>Manages and optimizes databases using SQL, ensuring efficient data storage, retrieval, 
+            and integrity while designing structured queries and maintaining performance.</p>
+          <button class="view-project-btn" data-images='["picture/gambarsql1.png","picture/gambarsql2.png"]'>View Project</button>
+        </div>
+
+        </div>
+
+        <!-- IMAGE SLIDER / LIGHTBOX -->
+      <div id="image-lightbox">
+        <span class="close">&times;</span>
+        <img id="lightbox-img" src="" alt="Project Image">
+        <div class="nav-buttons">
+        <button id="prev">&lt;</button>
+        <button id="next">&gt;</button>
+  </div>
+</div>
+
+</section>
+<!-- FOOTER -->
+<footer> © 2025 — Designed by Intan Nadhirah </footer>
+
+</body>
+</html>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  // --------------------
+  // Student Info Modal
+  // --------------------
+  const logo = document.getElementById("logo");
+  const studentModal = document.getElementById("studentModal");
+  const studentClose = document.getElementById("closeModal");
+
+  logo.addEventListener("click", function() {
+    studentModal.style.display = "block";
+  });
+
+  studentClose.addEventListener("click", function() {
+    studentModal.style.display = "none";
+  });
+
+  window.addEventListener("click", function(e) {
+    if(e.target === studentModal){
+      studentModal.style.display = "none";
+    }
+  });
+
+  // --------------------
+  // Image Lightbox
+  // --------------------
+  const lightbox = document.getElementById("image-lightbox");
+  const lightboxImg = document.getElementById("lightbox-img");
+  const lightboxClose = lightbox.querySelector(".close");
+  const prevBtn = document.getElementById("prev");
+  const nextBtn = document.getElementById("next");
+
+  let currentImages = [];
+  let currentIndex = 0;
+
+  // buka lightbox bila tekan button
+  document.querySelectorAll(".view-project-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      currentImages = JSON.parse(btn.dataset.images);
+      currentIndex = 0;
+      lightboxImg.src = currentImages[currentIndex];
+      lightbox.style.display = "flex";
+    });
+  });
+
+  // tutup lightbox
+  lightboxClose.addEventListener("click", () => {
+    lightbox.style.display = "none";
+  });
+
+  // navigasi next / prev
+  prevBtn.addEventListener("click", () => {
+    if(currentImages.length > 0){
+      currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
+      lightboxImg.src = currentImages[currentIndex];
+    }
+  });
+
+  nextBtn.addEventListener("click", () => {
+    if(currentImages.length > 0){
+      currentIndex = (currentIndex + 1) % currentImages.length;
+      lightboxImg.src = currentImages[currentIndex];
+    }
+  });
+
+  // tutup lightbox bila klik luar content
+  lightbox.addEventListener("click", function(e){
+    if(e.target === lightbox){
+      lightbox.style.display = "none";
+    }
+  });
+
+});
+</script>
+
+
+ 

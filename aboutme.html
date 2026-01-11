@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+
+  <!-- BACKGROUND PAGE -->
+  <style>
+    body {
+      margin: 0;
+      background: linear-gradient(135deg, #b44b00, #ffffff);
+    }
+  </style>
+</head>
+
+<!-- IMAGE POPUP -->
+<div id="imagePopup" class="popup">
+  <span class="close-popup">&times;</span>
+  <img id="popupImage" src="">
+</div>
+
+<!-- Navigation Bar -->
+<nav>
+  <div class="logo">
+    <img src="picture/logoresume.png" id="logo" alt="Logo">
+  </div>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="aboutme.html">About Me</a></li>
+    <li><a href="education.html">Education</a></li>
+    <li><a href="experience.html">Experience</a></li>
+    <li><a href="skills.html">Skills</a></li>
+  </ul>
+</nav>
+
+<!-- STUDENT INFO MODAL -->
+<div class="modal" id="studentModal">
+  <div class="modal-content">
+    <span class="close-btn" id="closeModal">&times;</span>
+    <h2>Student Information</h2>
+    <div class="info-grid">
+      <div class="info-item"><span class="label">Name:</span> Intan Nadhirah Binti Safari</div>
+      <div class="info-item"><span class="label">Student ID:</span> 2025195859</div>
+      <div class="info-item"><span class="label">Group:</span> CDIM262ST2</div>
+      <div class="info-item"><span class="label">Course Code:</span> IMS458</div>
+      <div class="info-item"><span class="label">Course Name:</span>  BACHELOR OF INFORMATION SCIENCE (INFORMATION SYSTEM MANAGEMENT)</div>
+      <div class="info-item"><span class="label">Program Code:</span> CDIM262</div>
+      <div class="info-item"><span class="label">Faculty:</span> Faculty of Information Management, UiTM Puncak Perdana</div>
+      <div class="info-item"><span class="label">Submission Date:</span> 12 January 2026</div>
+      <div class="info-item"><span class="label">Published URL:</span> <a href="#">https://github.com/intannadhirah123/intan-nadhirah-binti-safari-resume.git</a></div>
+    </div>
+  </div>
+</div>
+
+  <!-- ABOUT ME SECTION -->
+<section class="about-container">
+  
+  <!-- Left: Photo -->
+  <div class="about-photo">
+    <img src="picture/header.jpg" alt="Profile Picture">
+  <!-- Left Cards-->
+      <p>📧 <a href="mailto:intannadhirah123@gmail.com">intannadhirah123@gmail.com</a></p>
+      <p>📱 <span>+60 11-3612 1624</p>
+      <p>🌐 <span>English, Malay</p>
+  </div>
+  <!-- Right: Cards -->
+  <div class="about-cards">
+
+    <div class="profile-card profile-info">
+  <h3>Profile</h3>
+
+  <!-- Profile Card 1 -->
+
+    <p>Hi! I am <strong>Intan Nadhirah</strong>, a passionate Web & Graphic Designer from Klang, Selangor, Malaysia. 
+    I hold a Diploma in Business Information System from Politeknik Nilai, achieving the 
+    <strong>Dean's List for 3 semesters</strong>. I enjoy creating innovative digital solutions 
+    and exploring creative designs.</p>
+
+</div>
+
+    <!-- Profile Card 2: Achievement & Certificates  -->
+    <div class="profile-card certificates">
+      <h3>Achievement & Certificates</h3>
+      <div class="cert-section">
+
+           <!-- Final Year Project Diploma -->
+          <div class="cert-item">
+          <div class="cert-desc">
+            <p><strong>🖥️ Final Year Project : ParcelBot (2023) - Politeknik Nilai</strong></p>
+            <p> ParcelBot is a prototype automated parcel management system developed to
+            improve the efficiency of parcel tracking and handling processes. The
+           project focuses on system design and workflow simulation to reduce manual
+           errors and enhance operational efficiency.
+           </p>
+            <button class="view-btn" data-images="picture/sijilfyp1.jpg, picture/sijilfyp2.jpg">View</button>
+          </div>
+        </div>
+
+         <!-- Diploma Certificates -->
+        <div class="cert-item">
+          <div class="cert-desc">
+            <p><strong>🏆 Dean’s List 3 Semesters (2021-2023) - Politeknik Nilai, Negeri Sembilan</strong></p>
+            <p>Awarded for achieving excellent academic performance and maintaining a 
+              high CGPA across three consecutive semesters.</p>
+            <button class="view-btn" data-images="picture/sijildekan1.png, picture/sijildekan2.png, picture/sijildekan3.png">View</button>
+          </div>
+        </div>
+
+    <div class="cert-item">
+      <div class="cert-desc">
+      <p><strong>📝 Essay Writing Competition (2019) – Acknowledged by Australian National University 
+        & Ministry of Education Malaysia</strong></p>
+      <p>Recognized by the Australian National University (ANU) and the Ministry of Education Malaysia 
+        for demonstrating excellent essay writing skills, analytical thinking, and clarity in written expression.</p>
+      <button class="view-btn" data-images="picture/sijilenglish.jpeg">View</button>
+  </div>
+</div>
+
+      </div> <!-- cert-section -->
+    </div> <!-- profile-card certificates -->
+  </div> <!-- about-cards -->
+
+</section>
+
+<!-- FOOTER -->
+<footer>
+  © 2025 — Designed by Intan Nadhirah
+</footer>
+
+<!-- IMAGE POPUP SLIDER -->
+<div id="imagePopup" class="popup">
+  <span class="close-popup">&times;</span>
+
+  <button class="nav-btn prev">&#10094;</button>
+  <img id="popupImage" src="">
+  <button class="nav-btn next">&#10095;</button>
+</div>
+
+<script>
+  // Ambil POPUP TERAKHIR (yang ada prev & next)
+  const popups = document.querySelectorAll("#imagePopup");
+  const popup = popups[popups.length - 1];
+
+  const popupImg = popup.querySelector("#popupImage");
+  const closeBtn = popup.querySelector(".close-popup");
+  const prevBtn = popup.querySelector(".prev");
+  const nextBtn = popup.querySelector(".next");
+
+  let images = [];
+  let currentIndex = 0;
+
+  document.querySelectorAll(".view-btn").forEach(button => {
+    button.addEventListener("click", () => {
+      const data = button.dataset.images;
+
+      if (!data) return;
+
+      images = data.split(",").map(img => img.trim());
+      currentIndex = 0;
+
+      popupImg.src = images[currentIndex];
+      popup.style.display = "flex";
+    });
+  });
+
+  nextBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    if (images.length <= 1) return;
+
+    currentIndex = (currentIndex + 1) % images.length;
+    popupImg.src = images[currentIndex];
+  });
+
+  prevBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    if (images.length <= 1) return;
+
+    currentIndex =
+      (currentIndex - 1 + images.length) % images.length;
+    popupImg.src = images[currentIndex];
+  });
+
+  closeBtn.addEventListener("click", () => {
+    popup.style.display = "none";
+  });
+
+  popup.addEventListener("click", (e) => {
+    if (e.target === popup) {
+      popup.style.display = "none";
+    }
+  });
+
+document.addEventListener("DOMContentLoaded", function () {
+  const logo = document.getElementById("logo");      // logo navbar
+  const modal = document.getElementById("studentModal"); // modal card
+  const closeBtn = document.getElementById("closeModal"); // X button
+
+  // buka modal bila klik logo
+  logo.addEventListener("click", function() {
+    modal.style.display = "block";
+  });
+
+  // tutup modal bila klik X
+  closeBtn.addEventListener("click", function() {
+    modal.style.display = "none";
+  });
+
+  // tutup modal bila klik luar content
+  window.addEventListener("click", function(e) {
+    if(e.target == modal){
+      modal.style.display = "none";
+    }
+  });
+});
+
+</script>
+
+</body>
+</html>
